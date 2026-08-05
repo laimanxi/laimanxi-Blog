@@ -1,0 +1,29 @@
+# Fluid 主题覆盖配置
+# Hexo 会将本文件与 themes/fluid/_config.yml 深度合并，此处仅写需要覆盖的项，
+# 保持主题目录干净以便升级。
+
+# 站点图标
+favicon: /img/favicon.svg
+apple_touch_icon: /img/favicon.svg
+
+# 导航栏
+navbar:
+  # 为空则按站点 _config.yml 的 title（laimanxi）显示
+  blog_title: ""
+
+# 首页
+index:
+  slogan:
+    # 首页打字机副标题
+    text: "此行，终抵繁星"
+
+# 关于页
+about:
+  name: "laimanxi"
+  intro: "记录学习与思考"
+  icons:
+    - { class: "iconfont icon-github-fill", link: "https://github.com/laimanxi", tip: "GitHub" }
+
+# 友链页（暂无友链，先关闭；导航栏中对应入口原本也已注释）
+links:
+  enable: false
