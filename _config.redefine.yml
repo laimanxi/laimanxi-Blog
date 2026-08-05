@@ -1,0 +1,79 @@
+# Redefine 主题覆盖配置
+# Hexo 会将本文件与 node_modules/hexo-theme-redefine/_config.yml 深度合并，
+# 此处仅写需要覆盖的项。文档：https://redefine-docs.ohevan.com
+
+# 基本信息
+info:
+  title: laimanxi
+  subtitle: 记录学习与思考
+  author: laimanxi
+  url: https://laimanxi.github.io
+
+# 图片
+defaults:
+  favicon: /img/favicon.svg
+  avatar: /img/favicon.svg
+
+# 首页横幅
+home_banner:
+  title: laimanxi
+  subtitle:
+    text:
+      - 此行，终抵繁星
+      - 记录学习与思考
+  social_links:
+    enable: true
+    links:
+      - icon: github
+        url: https://github.com/laimanxi
+
+# 导航栏
+navbar:
+  links:
+    Home:
+      path: /
+      icon: fa-regular fa-house
+    Archives:
+      path: /archives
+      icon: fa-regular fa-archive
+    Tags:
+      path: /tags
+      icon: fa-regular fa-tags
+    Categories:
+      path: /categories
+      icon: fa-regular fa-folder
+    About:
+      path: /about
+      icon: fa-regular fa-user
+  # 本地搜索，依赖 hexo-generator-searchdb（已安装）
+  search:
+    enable: true
+    preload: true
+
+# 首页侧边栏
+home:
+  sidebar:
+    links:
+      Archives:
+        path: /archives
+        icon: fa-regular fa-archive
+      Tags:
+        path: /tags
+        icon: fa-regular fa-tags
+      Categories:
+        path: /categories
+        icon: fa-regular fa-folder
+
+# 全局
+global:
+  open_graph:
+    description: laimanxi 的个人博客，记录学习与思考
+
+# 评论（暂未配置评论系统，先关闭）
+comment:
+  enable: false
+
+# 页脚
+footer:
+  # 建站时间取第一篇文章日期
+  start: 2025/10/03 00:00:00
