@@ -71,9 +71,23 @@ global:
   open_graph:
     description: laimanxi 的个人博客，记录学习与思考
 
-# 评论（暂未配置评论系统，先关闭）
+# 评论（Giscus，基于 GitHub Discussions）
 comment:
-  enable: false
+  enable: true
+  system: giscus
+  config:
+    giscus:
+      repo: laimanxi/laimanxi.github.io
+      repo_id: R_kgDORRNjxg
+      category: General
+      category_id: DIC_kwDORRNjxs4DCxOj
+      mapping: pathname
+      strict: 1
+      reactions_enabled: 1
+      emit_metadata: 0
+      lang: zh-CN
+      input_position: top
+      loading: lazy
 
 # 页脚
 footer:
