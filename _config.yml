@@ -40,7 +40,10 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  # 将文章中的相对图片路径解析到文章资源文件夹（post_asset_folder）
+  postAsset: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js

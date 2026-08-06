@@ -60,6 +60,25 @@ categories:
 
 `<!--more-->` 以上是首页摘要，以下内容需点开文章查看。
 
+## 文章中插入图片
+
+已开启 `post_asset_folder`：用 `npx hexo new "文章名"` 创建文章时，会同时生成同名资源文件夹，图片放进该文件夹，用相对路径引用：
+
+```
+source/_posts/
+├── my-post.md
+└── my-post/          ← 同名文件夹
+    └── photo.jpg
+```
+
+```markdown
+![图片描述](photo.jpg)
+```
+
+- 图片文件名不要用中文和空格（如 `photo-01.jpg`），注意扩展名大小写
+- 全站通用图片（头像、logo 等）放 `source/img/`，用绝对路径引用：`![logo](/img/logo.png)`
+- 建议单张图片压缩到几百 KB 以内，避免页面加载慢
+
 ## Hexo 常用命令
 
 ```bash
