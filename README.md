@@ -5,6 +5,10 @@
 - 线上地址：https://laimanxi.github.io
 - 部署仓库：https://github.com/laimanxi/laimanxi.github.io（由 `hexo deploy` 自动管理，勿手动修改）
 
+## 文档
+
+- [首页横幅特效与全站背景实现文档](docs/homepage-effects.md) —— 晕染圆球背景、鼠标揭示文字的原理与排障备忘
+
 ## 仓库结构
 
 ```

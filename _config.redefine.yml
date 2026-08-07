@@ -5,7 +5,7 @@
 # 基本信息
 info:
   title: laimanxi
-  subtitle: 记录学习与思考
+  subtitle: 这里好像空空的
   author: laimanxi
   url: https://laimanxi.github.io
 
@@ -18,16 +18,29 @@ defaults:
 home_banner:
   title: laimanxi
   subtitle:
-    text:
-      - 偶尔回望，常常驻足，总是向前
-      - 看到这句话的都是傻子
-      - 持续更新，欢迎关注
-      - 邀请你一起拉屎~
+    # 打字机副标题已被自定义揭示文字替代（source/js/custom.js），此处置空。
+    # 你之前写的句子留档，以后想恢复打字机效果把 text 换成它们即可：
+    # - 喂喂喂，有人吗
+    # - 偶尔回望，常常驻足，总是向前
+    # - 看到这句话的都是傻子
+    # - 持续更新，欢迎关注
+    # - 邀请你一起拉屎
+    text: []
   social_links:
     enable: true
     links:
       - icon: github
         url: https://github.com/laimanxi
+
+# 自定义 CSS/JS 注入（首页横幅特效）
+# 注意：修改 custom.css / custom.js 后，把下面 URL 里的 v= 数字 +1，
+# 强制浏览器加载新版本，避免缓存旧文件
+inject:
+  enable: true
+  head:
+    - <link rel="stylesheet" href="/css/custom.css?v=10">
+  footer:
+    - <script src="/js/custom.js?v=10" defer></script>
 
 # 导航栏
 navbar:
@@ -69,7 +82,7 @@ home:
 # 全局
 global:
   open_graph:
-    description: laimanxi 的个人博客，记录学习与思考
+    description: 这里是 laimanxi 的地盘，天干物燥，小心火烛
 
 # 评论（Giscus，基于 GitHub Discussions）
 comment:
