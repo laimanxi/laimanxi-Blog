@@ -33,13 +33,39 @@ main.page-container {
   background: transparent !important;
 }
 
-/* 暗色模式不显示圆球，保持主题默认深色 */
+/* ---------- 暗色模式：圆球换深色光晕版（screen 混合） ----------
+   层背景透明，透出 html 的深色底；球体为深饱和色、低透明度，
+   交汇处因 screen 混合微微变亮，呈"暗色光晕"效果 */
 html.dark .aurora-global {
-  display: none;
+  background: transparent;
 }
 
-/* body 底色透明化（仅亮色模式），让全局背景层透出来 */
-html:not(.dark) body {
+html.dark .aurora-blob {
+  mix-blend-mode: screen;
+}
+
+html.dark .aurora-blob.b1 {
+  background: radial-gradient(circle at 35% 35%, rgba(99, 102, 241, 0.5), transparent 65%);
+}
+
+html.dark .aurora-blob.b2 {
+  background: radial-gradient(circle at 60% 40%, rgba(168, 85, 247, 0.42), transparent 65%);
+}
+
+html.dark .aurora-blob.b3 {
+  background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.35), transparent 65%);
+}
+
+html.dark .aurora-blob.b4 {
+  background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.3), transparent 65%);
+}
+
+html.dark .aurora-blob.b5 {
+  background: radial-gradient(circle at 50% 40%, rgba(139, 92, 246, 0.4), transparent 65%);
+}
+
+/* body 底色透明化，让全局背景层透出来（底色由 html 承担，暗色模式下同理） */
+body {
   background: transparent !important;
 }
 
@@ -60,6 +86,25 @@ html:not(.dark) body {
   overflow: hidden;
 }
 
+/* ---------- 暗色模式适配 ----------
+   圆球层在暗色下整体隐藏（见上方 html.dark 规则）；
+   这里处理揭示文字：镂空填充色换成主题暗色底色，描边/实心换成浅色 */
+html.dark {
+  --banner-bg: #202124; /* 主题暗色底色，镂空文字的填充需与其一致 */
+}
+
+html.dark .reveal-base text {
+  stroke: rgba(255, 255, 255, 0.75); /* 暗底上的浅色描边 */
+}
+
+html.dark .reveal-top text {
+  fill: #f2f2f2; /* 暗底上的浅色实心字 */
+}
+
+html.dark .reveal-wrap.reveal-static .reveal-top text {
+  fill: rgba(255, 255, 255, 0.75);
+}
+
 .aurora-blob {
   position: absolute;
   border-radius: 50%;
@@ -75,7 +120,7 @@ html:not(.dark) body {
   left: -12%;
   top: -18%;
   background: radial-gradient(circle at 35% 35%, rgba(165, 180, 252, 0.6), transparent 65%);
-  animation: aurora-drift-1 26s ease-in-out infinite alternate;
+  animation: aurora-drift-1 20s ease-in-out infinite alternate;
 }
 
 .aurora-blob.b2 {
@@ -84,7 +129,7 @@ html:not(.dark) body {
   right: -10%;
   top: 5%;
   background: radial-gradient(circle at 60% 40%, rgba(251, 207, 232, 0.6), transparent 65%);
-  animation: aurora-drift-2 32s ease-in-out infinite alternate;
+  animation: aurora-drift-2 26s ease-in-out infinite alternate;
 }
 
 .aurora-blob.b3 {
@@ -93,7 +138,7 @@ html:not(.dark) body {
   left: 20%;
   bottom: -25%;
   background: radial-gradient(circle at 50% 50%, rgba(186, 230, 253, 0.55), transparent 65%);
-  animation: aurora-drift-3 38s ease-in-out infinite alternate;
+  animation: aurora-drift-3 32s ease-in-out infinite alternate;
 }
 
 .aurora-blob.b4 {
@@ -102,7 +147,17 @@ html:not(.dark) body {
   right: 22%;
   bottom: 10%;
   background: radial-gradient(circle at 50% 50%, rgba(253, 230, 138, 0.4), transparent 65%);
-  animation: aurora-drift-2 22s ease-in-out infinite alternate-reverse;
+  animation: aurora-drift-4 16s ease-in-out infinite alternate;
+}
+
+/* b5：淡紫，画面中间偏上，短幅慢速漂移，与其他球错开节奏 */
+.aurora-blob.b5 {
+  width: 28vmax;
+  height: 28vmax;
+  left: 38%;
+  top: -6%;
+  background: radial-gradient(circle at 50% 40%, rgba(196, 181, 253, 0.45), transparent 65%);
+  animation: aurora-drift-5 23s ease-in-out infinite alternate;
 }
 
 @keyframes aurora-drift-1 {
@@ -120,6 +175,17 @@ html:not(.dark) body {
   to   { transform: translate(12vw, -14vh) scale(1.15); }
 }
 
+/* b4 专用：向左上漂移，与其他三球方向均不相同 */
+@keyframes aurora-drift-4 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-18vw, -12vh) scale(1.2); }
+}
+
+/* b5 专用：向左下短幅慢漂（中上方球，幅度小避免干扰标题阅读） */
+@keyframes aurora-drift-5 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-9vw, 11vh) scale(1.12); }
+}
 /* ---------- 揭示文字（MiMo 风格） ---------- */
 /* 隐藏主题原本的标题与打字机副标题（由 JS 注入的 .reveal-wrap 替代） */
 .home-banner-container .description {
@@ -229,4 +295,9 @@ html:not(.dark) body {
   .aurora-blob {
     animation: none !important;
   }
+}
+
+/* 中文前缀单独缩放，与英文字高协调（1 = 原大，越小越矮） */
+.reveal-base .reveal-prefix {
+  font-size: 0.88em;
 }

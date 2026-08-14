@@ -11,7 +11,7 @@
     basePrefix: '你好，我是',   // 中文前缀
     topPrefix: "HELLO，I'M",    // 英文前缀（逗号与中文一致用全角）
     name: 'laimanxi',           // 两行中保持一致、像素级对齐的名字
-    radius: 170,          // 揭示圆孔半径（px）
+    radius: 250,          // 揭示圆孔半径（px）
     easePos: 0.18,        // 圆心跟随缓动系数
     easeRadius: 0.12      // 圆孔缩放缓动系数
   };
@@ -35,7 +35,7 @@
 
     var bg = document.createElement('div');
     bg.className = 'aurora-bg';
-    ['b1', 'b2', 'b3', 'b4'].forEach(function (cls) {
+    ['b1', 'b2', 'b3', 'b4', 'b5'].forEach(function (cls) {
       var blob = document.createElement('div');
       blob.className = 'aurora-blob ' + cls;
       bg.appendChild(blob);

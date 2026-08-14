@@ -38,9 +38,9 @@ home_banner:
 inject:
   enable: true
   head:
-    - <link rel="stylesheet" href="/css/custom.css?v=10">
+    - <link rel="stylesheet" href="/css/custom.css?v=15">
   footer:
-    - <script src="/js/custom.js?v=11" defer></script>
+    - <script src="/js/custom.js?v=14" defer></script>
 
 # 导航栏
 navbar:
